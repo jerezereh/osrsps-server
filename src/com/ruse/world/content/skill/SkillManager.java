@@ -68,7 +68,7 @@ public class SkillManager {
 	 * @param experience	The amount of experience to add to the skill.
 	 * @return				The Skills instance.
 	 */
-	public SkillManager addExperience(Skill skill, int experience) {
+	public SkillManager addExperience(Skill skill, double experience) {
 		/*
 		 * Hi my name is Crimson and this is Jackass. Chance of getting pet 
 						0		ATTACK,
@@ -178,9 +178,12 @@ public class SkillManager {
 			}
 		}
 		
-		experience = BrawlingGloves.getExperienceIncrease(player, skill.ordinal(), experience);
-		
-		experience *= Difficulty.getDifficultyModifier(player, skill);
+		experience = BrawlingGloves.getExperienceIncrease(player, skill.ordinal(), (int) experience);
+
+		System.out.println(experience);
+		System.out.println(Difficulty.getDifficultyModifier(player, skill));
+		experience *= ((double) Difficulty.getDifficultyModifier(player, skill) / 100);
+		System.out.println(experience);
 		
 		if (Misc.isWeekend()) {
 			experience *= 2;
@@ -193,7 +196,7 @@ public class SkillManager {
 		/*
 		 * Adds the experience to the skill's experience.
 		 */
-		this.skills.experience[skill.ordinal()] = this.skills.experience[skill.ordinal()] + experience > MAX_EXPERIENCE ? MAX_EXPERIENCE : this.skills.experience[skill.ordinal()] + experience;
+		this.skills.experience[skill.ordinal()] = Math.min(this.skills.experience[skill.ordinal()] + (int) experience, MAX_EXPERIENCE);
 		if(this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE) {
 			Achievements.finishAchievement(player, AchievementData.REACH_MAX_EXP_IN_A_SKILL);
 		}

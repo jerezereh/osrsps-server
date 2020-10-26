@@ -11,17 +11,17 @@ import com.google.common.collect.Sets;
 
 public enum PlayerRights {
 
-	PLAYER(-1, null, 1, 1), // A regular muggle.
-	MODERATOR(-1, "<col=20B2AA><shad=0>", 1, 1), // A moderator who has more privilege than other regular members and donators.
-	ADMINISTRATOR(-1, "@yel@<shad=0>", 1, 1), // The second-highest-privileged member of the server.
-	OWNER(-1, "<col=B40404><shad=0>", 1, 1), // The highest-privileged member of the server
-	DEVELOPER(-1, "<col=0><shad=B40404>", 1, 1),
-	VETERAN(-1, "<col=0><shad=FF7F00>", 1, 1),
-	CONTRIBUTOR(-1, "<col=424242><shad=0>", 1, 1),
-	MEMBER(-1, "<col=FED439><shad=0>", 1, 1),
-	YOUTUBER(-1, "<col=CD201F><shad=ffffff>", 1, 1),
-	CRAP(-1, "<col=0><shad=FFFFFF>", 1, 1),
-	SUPPORT(-1, "<col=FFFFFF><shad=0>", 1, 1);
+	PLAYER(-1, null, 1, 5), // A regular muggle.
+	MODERATOR(-1, "<col=20B2AA><shad=0>", 1, 5), // A moderator who has more privilege than other regular members and donators.
+	ADMINISTRATOR(-1, "@yel@<shad=0>", 1, 5), // The second-highest-privileged member of the server.
+	OWNER(-1, "<col=B40404><shad=0>", 1, 5), // The highest-privileged member of the server
+	DEVELOPER(-1, "<col=0><shad=B40404>", 1, 5),
+	VETERAN(-1, "<col=0><shad=FF7F00>", 1, 5),
+	CONTRIBUTOR(-1, "<col=424242><shad=0>", 1, 5),
+	MEMBER(-1, "<col=FED439><shad=0>", 1, 5),
+	YOUTUBER(-1, "<col=CD201F><shad=ffffff>", 1, 5),
+	CRAP(-1, "<col=0><shad=FFFFFF>", 1, 5),
+	SUPPORT(-1, "<col=FFFFFF><shad=0>", 1, 5);
 	
 	PlayerRights(int yellDelaySeconds, String yellHexColorPrefix, double loyaltyPointsGainModifier, double experienceGainModifier) {
 		this.yellDelay = yellDelaySeconds;
